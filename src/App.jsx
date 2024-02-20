@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import DataRender from './Components/DataRender';
+import { CiSearch } from "react-icons/ci";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState("karachi");
   const [cityInp, setCityInp] = useState("");
   const [dataFetched, setDataFetched] = useState(false);
   const [data, setData] = useState([]);
@@ -39,21 +40,20 @@ export default function App() {
     setCityName(cityInp)
   }
   return (
-    <div className='container mt-5 px-4'>
-      <div className="inputDiv mb-4">
-        <label className='form-label'>
-          City Name:
-        </label>
+    <div className='container px-4'>
+      <div className="inputDiv mb-4 d-flex gap-3 align-items-center">
         <input type="text" className='form-control' placeholder='Enter city name...' onChange={(e) => setCityInp(e.target.value)} value={cityInp} />
-        <div className="btnDiv mt-3">
-          <button onClick={searchWeather}>Search Weather</button>
+        <div className="btnDiv">
+          <button onClick={searchWeather}>
+            <CiSearch />
+          </button>
         </div>
       </div>
       {
         dataFetched && <DataRender data={data} />
       }
 
-      <ToastContainer autoClose={2000}/>
+      <ToastContainer autoClose={2000} />
     </div>
   )
 }

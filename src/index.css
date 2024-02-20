@@ -5,6 +5,46 @@
 }
 
 .btnDiv button {
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+.container {
+  max-width: 500px;
+  margin-top: 50px;
+  background-color: #221564;
+  color: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.form-control {
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 30px;
+}
+
+.imgDiv img {
+  width: 200px;
+}
+
+.tempDiv h1 {
+  font-size: 62px;
+}
+
+.tempDiv span {
+  font-size: 46px;
+}
+
+.cityNameHeading h1 {
+  font-size: 46px;
+};
+
+.humidityWindDiv {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.humidityWindDiv p {
+  margin-bottom: 0;
 }
