@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DataRender from './Components/DataRender';
-import { CiSearch } from "react-icons/ci";
 import { ToastContainer, toast } from 'react-toastify';
+import searchIcon from "./Assets/search.png"
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
@@ -38,14 +38,23 @@ export default function App() {
 
   const searchWeather = () => {
     setCityName(cityInp)
-  }
+  };
+
+
+  const AddInputKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      searchWeather();
+    }
+  };
   return (
     <div className='container px-4'>
       <div className="inputDiv mb-4 d-flex gap-3 align-items-center">
-        <input type="text" className='form-control' placeholder='Enter city name...' onChange={(e) => setCityInp(e.target.value)} value={cityInp} />
+        <input type="text" className='form-control' placeholder='Enter city name...' onChange={(e) => setCityInp(e.target.value)} value={cityInp}
+          onKeyUp={AddInputKeyPress}
+        />
         <div className="btnDiv">
           <button onClick={searchWeather}>
-            <CiSearch />
+            <img src={searchIcon} width={"15px"} alt="" />
           </button>
         </div>
       </div>

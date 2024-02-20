@@ -1,13 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import drizzle from "../Assets/drizzle.png"
 import humidity from '../Assets/humidity.png'
+import wind from "../Assets/wind.png"
+import Clouds from "../Assets/cloud.png"
+import Clear from "../Assets/clear.png"
+import Rain from "../Assets/rain.png"
+import Drizzle from "../Assets/drizzle.png"
+import Mist from "../Assets/mist.png"
+import Haze from "../Assets/haze.png"
+import Smoke from "../Assets/smoke.png"
 
 export default function DataRender({ data }) {
+    const [imgSrc, setImgSrc] = useState(null);
+
+    useEffect(() => {
+        if (data.weather[0].main == "Clouds") {
+            setImgSrc(Clouds)
+        } else if (data.weather[0].main == "Clear") {
+            setImgSrc(Clear)
+        } else if (data.weather[0].main == "Rain") {
+            setImgSrc(Rain)
+        } else if (data.weather[0].main == "Drizzle") {
+            setImgSrc(Drizzle)
+        } else if (data.weather[0].main == "Mist") {
+            setImgSrc(Mist)
+        } else if (data.weather[0].main == "Haze") {
+            setImgSrc(Haze)
+        } else if (data.weather[0].main == "Smoke") {
+            setImgSrc(Smoke)
+        }
+    }, [data])
+
+
     return (
         <div className='d-flex flex-column align-items-center gap-3'>
 
             <div className="imgDiv">
-                <img src={drizzle} alt="" />
+                <img src={imgSrc} alt="" />
             </div>
 
             <div className="tempDiv">
@@ -24,24 +53,24 @@ export default function DataRender({ data }) {
                 </h1>
             </div>
 
-            <div className="humidityWindDiv d-flex justify-content-between">
+            <div className="d-flex justify-content-between humidityWindDiv">
                 <div className="himidityDiv d-flex align-items-center gap-2">
                     <div>
                         <img src={humidity} alt="" />
                     </div>
                     <div>
-                        <p>87%</p>
+                        <p>{data.main.humidity} %</p>
                         <p>Humidity</p>
                     </div>
                 </div>
 
                 <div className="windSpeedDiv d-flex align-items-center gap-2">
                     <div>
-                        <img src={humidity} alt="" />
+                        <img src={wind} alt="" />
                     </div>
                     <div>
-                        <p>87%</p>
-                        <p>Humidity</p>
+                        <p>{data.wind.speed} km/h</p>
+                        <p>Wind Speed</p>
                     </div>
                 </div>
             </div>

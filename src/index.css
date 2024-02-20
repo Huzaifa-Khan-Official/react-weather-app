@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 0 15px;
+}
+
 .btnDiv button {
   padding: 10px;
   border: none;
@@ -26,6 +30,7 @@
 
 .imgDiv img {
   width: 200px;
+  height: 200px;
 }
 
 .tempDiv h1 {
@@ -40,11 +45,24 @@
   font-size: 46px;
 };
 
+.humidityWindImg {
+  height: 5px !important;
+}
+
 .humidityWindDiv {
   width: 100%;
   padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .humidityWindDiv p {
   margin-bottom: 0;
+}
+
+@media (max-width: 367px) {
+  .humidityWindDiv {
+    justify-content: center !important;
+    gap: 15px;
+    /* align-items: center; */
+  }
 }
