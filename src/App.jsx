@@ -5,10 +5,12 @@ import searchIcon from "./Assets/search.png"
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
-  const [cityName, setCityName] = useState("karachi");
+  const [cityName, setCityName] = useState("");
   const [cityInp, setCityInp] = useState("");
   const [dataFetched, setDataFetched] = useState(false);
   const [data, setData] = useState([]);
+  const [history, setHistory] = useState([]);
+  const historyData = JSON.parse(window.localStorage.getItem("history")) || [];
 
   const apiKey = "237697a6e0152984a6d0eb0e2c8f66da";
   const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
@@ -26,18 +28,29 @@ export default function App() {
 
       if (data.cod !== "400") {
         setData(data);
+
+        setHistory([...history, data]);
+        window.localStorage.setItem("history", JSON.stringify([...history, data]));
+
         setDataFetched(true);
         setCityInp("");
+
+
       }
     }
   }
+
+  useEffect(() => {
+    setHistory(historyData);
+    localStorage.setItem("history", JSON.stringify(history));
+  }, []);
 
   useEffect(() => {
     getWeather();
   }, [cityName]);
 
   const searchWeather = () => {
-    setCityName(cityInp)
+    setCityName(cityInp);
   };
 
 
@@ -46,6 +59,7 @@ export default function App() {
       searchWeather();
     }
   };
+
   return (
     <div className='container px-4'>
       <div className="inputDiv mb-4 d-flex gap-3 align-items-center">

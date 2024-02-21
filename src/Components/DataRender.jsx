@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import drizzle from "../Assets/drizzle.png"
 import humidity from '../Assets/humidity.png'
 import wind from "../Assets/wind.png"
 import Clouds from "../Assets/cloud.png"
