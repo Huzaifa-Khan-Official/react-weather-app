@@ -59,10 +59,24 @@ body {
   margin-bottom: 0;
 }
 
+.historyBtn button {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 20px;
+  border: 1px solid black;
+  transition: all .3s;
+}
+
+.historyBtn button:hover {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
 @media (max-width: 367px) {
   .humidityWindDiv {
     justify-content: center !important;
     gap: 15px;
-    /* align-items: center; */
   }
 }
