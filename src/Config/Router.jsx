@@ -9,7 +9,7 @@ export default function Router() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/history' element={<HistoryPage />} />
+                    {/* <Route path='/history' element={<HistoryPage />} /> */}
                 </Routes>
             </BrowserRouter>
         </div>
