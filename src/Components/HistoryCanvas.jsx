@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function HistoryCanvas({ history }) {
-    console.log(history);
     return (
         <div>
             <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">

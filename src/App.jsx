@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
-import Router from './Config/Router';
+import Home from './Components/Home';
 
 export default function App() {
   return (
     <>
-      <Router />
+      <Home />
     </>
   )
 }

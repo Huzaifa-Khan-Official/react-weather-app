@@ -67,11 +67,11 @@ export default function Home() {
     return (
         <div className='container px-4'>
             <div className="historyBtn d-flex justify-content-end my-4">
-                <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" disabled={history.length > 0 ? false : true}>
                     History
                 </button>
             </div>
-            <HistoryCanvas history={history}/>
+            <HistoryCanvas history={history} />
             <div className="inputDiv mb-4 d-flex gap-3 align-items-center">
                 <input type="text" className='form-control' placeholder='Enter city name...' onChange={(e) => setCityInp(e.target.value)} value={cityInp}
                     onKeyUp={AddInputKeyPress}
